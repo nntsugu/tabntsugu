@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "TabnTsugu",
+  "version": "0.0.1",
+  "description": "Export all tabs from current profile windows to Markdown format",
+  "action": {
+    "default_title": "Open TabnTsugu"
+  },
+  "background": {
+    "service_worker": "src/background/index.ts",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/content/index.ts"]
+    }
+  ],
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ]
+}
